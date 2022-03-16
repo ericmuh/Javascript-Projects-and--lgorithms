@@ -3,4 +3,4 @@
 A set of small projects and algorithms for practice.
 
 ## Sources for algorithms
-(Codewars)[https://www.codewars.com/]
+[Codewars](https://www.codewars.com/)

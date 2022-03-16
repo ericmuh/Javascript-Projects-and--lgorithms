@@ -19,7 +19,7 @@ const createTodo = () => {
     todoLi.innerText = todo;
     todosContainer.appendChild(todoLi);
     console.log(todoInput.value);
-    todoInput.value =""
+    todoInput.value = "";
   });
 
   // return todo;
