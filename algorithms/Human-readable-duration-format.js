@@ -25,40 +25,19 @@ A component will not appear at all if its value happens to be zero. Hence, 1 min
 
 A unit of time must be used "as much as possible". It means that the function should not return 61 seconds, but 1 minute and 1 second instead. Formally, the duration specified by of a component must not be greater than any valid more significant unit of time.*/
 
-function formatDuration(seconds) {
-  // Complete this function
+function formatDuration (seconds) {
+  var time = { year: 31536000, day: 86400, hour: 3600, minute: 60, second: 1 },
+      res = [];
 
-  function pluralize(n, word) {
-    if (n == 1) {
-      return "%d %s" % (n, word);
+  if (seconds === 0) return 'now';
+  
+  for (var key in time) {
+    if (seconds >= time[key]) {
+      var val = Math.floor(seconds/time[key]);
+      res.push(val += val > 1 ? ' ' + key + 's' : ' ' + key);
+      seconds = seconds % time[key];
     }
-    return "%d %ss" % (n, word);
   }
-  if (seconds == 0) {
-    return "now";
-  }
-  const ONE_MINUTE = 60,
-    ONE_HOUR = 60 * ONE_MINUTE,
-    ONE_DAY = 24 * ONE_HOUR,
-    ONE_YEAR = 365 * ONE_DAY,
-    units = [
-      [ONE_YEAR, "year"],
-      [ONE_DAY, "day"],
-      [ONE_HOUR, "hour"],
-      [ONE_MINUTE, "minute"],
-      [1, "second"],
-    ],
-    r = [];
-
-  units.forEach((unit) => {
-    let time_period,
-      word = unit;
-    if (seconds >= time_period) {
-      let n = int(seconds / time_period);
-      r.push(pluralize(n, word));
-      seconds -= n * time_period;
-    }
-  });
-
-  return " and".join(", ".join(r).rsplit(",", 1));
+ 
+  return res.length > 1 ? res.join(', ').replace(/,([^,]*)$/,' and'+'$1') : res[0]
 }
