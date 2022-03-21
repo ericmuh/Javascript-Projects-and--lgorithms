@@ -1,6 +1,11 @@
-# Javascript Projects and Algorithms
+# A simple Calculator
+ A simple calculator using HTML, CSS &amp; Javascript
+ This is a simple calculator  using Javascript. 
+ 
+## checkout calculator:
+- Open up the index.html.
 
-A set of small projects and algorithms for practice.
-
-## Sources for algorithms
-[Codewars](https://www.codewars.com/)
+## Technologies used: 
+- HTML [Markup]
+- CSS [Design]
+- Javascript [Logic]
